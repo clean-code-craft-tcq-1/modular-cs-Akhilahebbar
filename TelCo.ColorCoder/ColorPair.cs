@@ -1,4 +1,12 @@
- public Color major;
+
+using System;
+using System.Diagnostics;
+using System.Drawing;
+namespace TelCo.ColorCoder
+{
+    public  class ColorPair
+    {
+        public Color major;
         public Color minor;
         public static Color[] MapMajor;
         public static Color[] MapMinor;
@@ -49,3 +57,5 @@
             }
             return index;
         }
+ }
+}
