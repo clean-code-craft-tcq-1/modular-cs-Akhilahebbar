@@ -8,3 +8,4 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.Metrics" Version="3.3.0" />
   </ItemGroup>
+</Project>
