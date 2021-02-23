@@ -12,11 +12,6 @@ namespace TelCo.ColorCoder
             ColorPair.MapMinor = new Color[] { Color.Blue, Color.Orange, Color.Green, Color.Brown, Color.SlateGray };
         }
 
-   
-        /// <summary>
-        /// Test code for the class
-        /// </summary>
-        /// <param name="args"></param>
         private static void Main(string[] args)
         {
             int pairNumber = 4;
