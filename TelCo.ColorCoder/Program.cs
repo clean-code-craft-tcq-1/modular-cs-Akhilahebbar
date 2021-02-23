@@ -17,27 +17,27 @@ namespace TelCo.ColorCoder
             int pairNumber = 4;
             ColorPair testPair1 = ColorPair.GetColorFromPairNumber(pairNumber);
             Console.WriteLine("[In]Pair Number: {0},[Out] Colors: {1}\n", pairNumber, testPair1);
-            Debug.Assert(testPair1.major == Color.White);
-            Debug.Assert(testPair1.minor == Color.Brown);
+            Debug.Assert(testPair1.Major == Color.White);
+            Debug.Assert(testPair1.Minor == Color.Brown);
 
             pairNumber = 5;
             testPair1 = ColorPair.GetColorFromPairNumber(pairNumber);
             Console.WriteLine("[In]Pair Number: {0},[Out] Colors: {1}\n", pairNumber, testPair1);
-            Debug.Assert(testPair1.major == Color.White);
-            Debug.Assert(testPair1.minor == Color.SlateGray);
+            Debug.Assert(testPair1.Major == Color.White);
+            Debug.Assert(testPair1.Minor == Color.SlateGray);
 
             pairNumber = 23;
             testPair1 = ColorPair.GetColorFromPairNumber(pairNumber);
             Console.WriteLine("[In]Pair Number: {0},[Out] Colors: {1}\n", pairNumber, testPair1);
-            Debug.Assert(testPair1.major == Color.Violet);
-            Debug.Assert(testPair1.minor== Color.Green);
+            Debug.Assert(testPair1.Major == Color.Violet);
+            Debug.Assert(testPair1.Minor== Color.Green);
 
-            ColorPair testPair2 = new ColorPair() { major = Color.Yellow, minor = Color.Green };
+            ColorPair testPair2 = new ColorPair() { Major = Color.Yellow, Minor = Color.Green };
             pairNumber = ColorPair.GetPairNumberFromColor(testPair2);
             Console.WriteLine("[In]Colors: {0}, [Out] PairNumber: {1}\n", testPair2, pairNumber);
             Debug.Assert(pairNumber == 18);
 
-            testPair2 = new ColorPair() { major = Color.Red, minor = Color.Blue };
+            testPair2 = new ColorPair() { Major = Color.Red, Minor = Color.Blue };
             pairNumber = ColorPair.GetPairNumberFromColor(testPair2);
             Console.WriteLine("[In]Colors: {0}, [Out] PairNumber: {1}", testPair2, pairNumber);
             Debug.Assert(pairNumber == 6);
