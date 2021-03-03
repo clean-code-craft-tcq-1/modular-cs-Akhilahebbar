@@ -1,37 +1,39 @@
 using System;
 using System.Drawing;
+using System.Linq;
 
 namespace TelCo.ColorCoder
 {
-    public partial class ColorPair
+    public partial class ColorPairMapper
     {
         public static int GetPairNumberFromColor(ColorPair pair)
         {
-            int majorColorIndex = GetColorIndex(pair.Major, MapMajor);
-
-            int minorColorIndex = GetColorIndex(pair.Minor, MapMinor);
+            int majorColorIndex = Array.FindIndex(ColorPair.MapMajor, item => item == pair.Major);
+            int minorColorIndex = Array.FindIndex(ColorPair.MapMinor, item => item == pair.Minor);
 
             if (majorColorIndex == -1 || minorColorIndex == -1)
             {
                 throw new ArgumentException($"Unknown Colors: {pair}");
             }
-
-            return (majorColorIndex * MapMinor.Length) + (minorColorIndex + 1);
+            return (majorColorIndex * ColorPair.MapMinor.Length) + (minorColorIndex + 1);
         }
-
-        public static int GetColorIndex(Color pair, Color[] colorMap)
+        public static ColorPair GetColorFromPairNumber(int pairNumber)
         {
-            int index = -1;
-            for (int i = 0; i < colorMap.Length; i++)
+            int minorSize = ColorPair.MapMinor.Length;
+            int majorSize = ColorPair.MapMajor.Length;
+
+            if (pairNumber < 1 || pairNumber > minorSize * majorSize)
             {
-                if (colorMap[i] == pair)
-                {
-                    index = i;
-                    break;
-                }
+                throw new ArgumentOutOfRangeException(
+                    string.Format("Argument PairNumber:{0} is outside the allowed range", pairNumber));
             }
-            return index;
+            int zeroBasedPairNumber = pairNumber - 1;
+            int majorIndex = zeroBasedPairNumber / minorSize;
+            int minorIndex = zeroBasedPairNumber % minorSize;
+
+            ColorPair pair = new ColorPair(ColorPair.MapMajor[majorIndex], ColorPair.MapMinor[minorIndex]);
+            return pair;
         }
+      
     }
 }
-
