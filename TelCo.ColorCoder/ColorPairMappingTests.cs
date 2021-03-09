@@ -10,8 +10,7 @@ namespace TelCo.ColorCoder
         {
             ColorPair colorpair= ColorPairMapper.GetColorFromPairNumber(pairNumber);
             Console.WriteLine("[In]Pair Number: {0},[Out] Colors: {1}\n", pairNumber, colorpair);
-            Debug.Assert(colorpair.Major == ExpectedColor.Major);
-            Debug.Assert(colorpair.Minor == ExpectedColor.Minor);
+            Debug.Assert(colorpair.Major == ExpectedColor.Major && colorpair.Minor == ExpectedColor.Minor);
         }
         public static void TestGetNumberFromColorPair(ColorPair colorpair, int ExpectedNumber)
         {
